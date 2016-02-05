@@ -1,0 +1,41 @@
+# ===================================================================
+# Spring Boot configuration for the "dev" profile.
+#
+# This configuration overrides the application.yml file.
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+application:
+    url: http://192.168.99.100
+shimmer:
+    url: http://192.168.99.100:8084
+
+spring:
+    profiles:
+        active: dev
+    datasource:
+        url: jdbc:postgresql://localhost:5432/ceportal
+        username: sachin
+        password:
+        driver-class-name: org.postgresql.Driver
+#    mail:
+#        host: smtp.mailgun.org
+#        port: 587
+#        username: postmaster@mg.chanlhealth.com #postmaster@sandboxf7ffda7599b84638ab08ae287d9a46e2.mailgun.org
+#        password: c239a8dcc52e67595d727f6587aa050b #d4e2c8a6d220ee4c78086c50c96bbb7f
+#        from : support@mg.chanlhealth.com #postmaster@sandboxf7ffda7599b84638ab08ae287d9a46e2.mailgun.org
+    messages:
+        cache-seconds: 1
+    thymeleaf:
+        cache: false
+
+#liquibase:
+#    contexts: dev
+
+server:
+    port: 8080

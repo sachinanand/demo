@@ -16,6 +16,14 @@ apply plugin: 'spring-boot'
 apply plugin : 'idea' 
 apply plugin: 'war'
 
+if (project.hasProperty('prod')) {
+	apply from: 'profile_prod.gradle'
+} else if (project.hasProperty('fast')) {
+	apply from: 'profile_fast.gradle'
+} else {
+	apply from: 'profile_dev.gradle'
+}
+
 
 war {
 	baseName = 'demo'
@@ -38,6 +46,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.codehaus.groovy:groovy')
 	runtime('org.postgresql:postgresql')
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
