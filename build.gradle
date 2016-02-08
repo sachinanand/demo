@@ -41,12 +41,19 @@ configurations {
 }
 
 dependencies {
+
+	compile group: 'org.hibernate', name: 'hibernate-core', version: hibernate_entitymanager_version
+	compile group: 'org.hibernate', name: 'hibernate-envers' ,  version: hibernate_envers_version
+	compile group: 'org.hibernate', name: 'hibernate-validator', version: hibernate_validator_version
+
+
 	compile('org.springframework.boot:spring-boot-starter-jdbc')
 	compile('org.springframework.boot:spring-boot-starter-mail')
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.data:spring-data-commons:1.11.0.RELEASE')
 	compile('org.codehaus.groovy:groovy')
 	runtime('org.postgresql:postgresql')
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
