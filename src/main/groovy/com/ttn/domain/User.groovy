@@ -23,20 +23,19 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonIgnore
-    private String id;
+    private Long id;
 
     @NotNull
-//    @Pattern(regexp = "^[a-z0-9]*$|(anonymousUser)")
     @Column(unique = true)
     @Size(max = 100)
     @Email
     private String email;
 
-    String getId() {
+    Long getId() {
         return id
     }
 
-    void setId(String id) {
+    void setId(Long id) {
         this.id = id
     }
 
