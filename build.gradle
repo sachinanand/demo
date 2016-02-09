@@ -15,6 +15,7 @@ apply plugin: 'eclipse-wtp'
 apply plugin: 'spring-boot'
 apply plugin : 'idea' 
 apply plugin: 'war'
+apply plugin: "jacoco"
 
 if (project.hasProperty('prod')) {
 	apply from: 'profile_prod.gradle'
@@ -40,6 +41,39 @@ configurations {
 	providedRuntime
 }
 
+sourceSets {
+	/*integrationTest {
+		java {
+			srcDir file('src/integration-test/java')
+		}
+		resources.srcDir file('src/integration-test/resources')
+
+	}*/
+	test {
+		groovy {
+			srcDir file('src/test/groovy')
+		}
+	}
+}
+
+tasks.withType(Test) {
+	reports.html.destination = file("${reporting.baseDir}/${name}")
+}
+
+
+jacoco {
+	toolVersion = "0.7.1.201405082137"
+	reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
+jacocoTestReport {
+	reports {
+		xml.enabled false
+		csv.enabled false
+		html.destination "${buildDir}/jacocoHtml"
+	}
+}
+
 dependencies {
 
 	compile group: 'org.hibernate', name: 'hibernate-core', version: hibernate_entitymanager_version
@@ -57,7 +91,9 @@ dependencies {
 	compile('org.codehaus.groovy:groovy')
 	runtime('org.postgresql:postgresql')
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
-	testCompile('org.springframework.boot:spring-boot-starter-test') 
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile group: 'org.spockframework', name: 'spock-spring'
+	testCompile group: 'com.h2database', name: 'h2'
 }
 
 
