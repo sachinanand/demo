@@ -2,5 +2,6 @@
 demo.iml
 demo.ipr
 demo.iws
+src/main/resources/config/application-dev.yml
 build/
 out/
