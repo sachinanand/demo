@@ -29,10 +29,10 @@ class UserResource {
             produces = MediaType.APPLICATION_JSON_VALUE)
 //    @Timed
     public ResponseEntity<User> getUser() {
-//        return Optional.ofNullable(userService.getUserWithAuthorities())
-//                .map(user -> new ResponseEntity<>(new UserDTO(user), HttpStatus.OK))
-//                .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
-        return new ResponseEntity<User>(new User(email:"sachin.anand@tothenew.com"), HttpStatus.OK)
+        return userService.findByEmail("sachin.anand@tothenew.com")
+                .map({user -> new ResponseEntity<>(user, HttpStatus.OK)})
+                .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR))
+
 
     }
 
@@ -40,9 +40,6 @@ class UserResource {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<User> saveUser() {
-//        return Optional.ofNullable(userService.getUserWithAuthorities())
-//                .map(user -> new ResponseEntity<>(new UserDTO(user), HttpStatus.OK))
-//                .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
         userService.createUser("sachin.anand@tothenew.com")
         return new ResponseEntity<>(HttpStatus.CREATED);
 

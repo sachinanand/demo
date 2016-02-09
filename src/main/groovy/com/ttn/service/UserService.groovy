@@ -25,4 +25,8 @@ class UserService {
         log.info("Created Information for User: {}", newUser);
         return newUser;
     }
+
+    public Optional<User> findByEmail(String email){
+        return userRepository.findOneByEmail(email)
+    }
 }
