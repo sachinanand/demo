@@ -22,6 +22,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonIgnore
     private String id;
 
     @NotNull
@@ -29,7 +30,6 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(unique = true)
     @Size(max = 100)
     @Email
-    @JsonIgnore
     private String email;
 
     String getId() {
