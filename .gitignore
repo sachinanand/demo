@@ -2,3 +2,5 @@
 demo.iml
 demo.ipr
 demo.iws
+build/
+out/
