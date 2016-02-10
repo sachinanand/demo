@@ -32,8 +32,6 @@ class UserResource {
         return userService.findByEmail("sachin.anand@tothenew.com")
                 .map({user -> new ResponseEntity<>(user, HttpStatus.OK)})
                 .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR))
-
-
     }
 
     @RequestMapping(value = "/saveUser",
