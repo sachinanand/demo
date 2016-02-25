@@ -11,3 +11,21 @@ Basic template for spring boot app
 
 Note : It is necessary to run test cases before running jacocoTestReport. We can also build.gradle to run test automatically 
 before you run jacocoTestReport, but I have not done it yet.
+
+## To Run this application
+
+1. Using Docker (Recommened)
+2. [Install Docker](https://docs.docker.com/engine/installation/)
+3. [Install & setup Docker machine](https://docs.docker.com/machine/install-machine/) (I think this is needed only for Mac OS)
+4. [Install Docker-compose](https://docs.docker.com/compose/install/)
+5. Start Docker machine
+6. Run  `eval "$(docker-machine env <machine-name>)"`
+7. Run `docker-compose up`
+
+The last command should start a bunch of download for postgres, gradle, java and other images. Grab a cup of coffee and your app should run.
+
+Without using Docker :
+
+1. Setup gradle and postgres on your machine.
+2. Create a new application-dev.yml (in src/main/resources/config) for your local configurations. (Do not commit this file.)
+3. Run `./gradlew bootRun`. If all is good. This should make your application come up, after a bunch of downloads of course.
