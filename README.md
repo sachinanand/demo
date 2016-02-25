@@ -14,7 +14,10 @@ before you run jacocoTestReport, but I have not done it yet.
 
 ## To Run this application
 
-Using Docker (Recommened)
+Using Docker (Recommened) :
+
+
+
 1. [Install Docker](https://docs.docker.com/engine/installation/)
 2. [Install & setup Docker machine](https://docs.docker.com/machine/install-machine/) (I think this is needed only for Mac OS)
 3. [Install Docker-compose](https://docs.docker.com/compose/install/)
