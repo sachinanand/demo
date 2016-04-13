@@ -18,12 +18,18 @@ spring:
 #        username: postmaster@sandboxf7ffda7599b84638ab08ae287d9a46e2.mailgun.org
 #        password: d4e2c8a6d220ee4c78086c50c96bbb7f
 #        from : postmaster@sandboxf7ffda7599b84638ab08ae287d9a46e2.mailgun.org
+    datasource:
+        url: jdbc:postgresql://localhost:5432/testdb
+        username: amit
+        password: igdefault
+        driver-class-name: org.postgresql.Driver
     jpa:
         open-in-view: false
         hibernate:
             ddl-auto: create-drop
             naming-strategy: org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy
             dialect : org.hibernate.dialect.PostgreSQLDialect
+
 #            hibernate.dialect=org.hibernate.dialect.H2Dialect
 #            hibernate.hbm2ddl.auto=create-drop
 #            hibernate.ejb.naming_strategy=org.hibernate.cfg.ImprovedNamingStrategy
